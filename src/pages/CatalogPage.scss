@@ -1,0 +1,46 @@
+@use '../styles/variables' as *;
+
+body {
+  background-color: $bg-primary;
+}
+
+.cinema-grid-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.cinema-card {
+  padding: 1rem;
+  border-radius: $border-radius;
+}
+
+.cinema-poster-img {
+  width: 100%;
+  background-color: $bg-img;
+  object-fit: cover;
+}
+
+.cinema-year {
+  display: flex;
+  color: $text-secondary;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.cinema-title {
+  display: flex;
+  font-size: 20px;
+  color: $text-primary;
+}
+
+.favorite-btn {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  color: $text-primary;
+  background-color: $accent-color;
+  border: none;
+  font-size: $button-font-size;
+  border-radius: $border-radius;
+}
