@@ -13,7 +13,7 @@ export type FavoritesContextType = {
 const FavoritesContext = createContext<FavoritesContextType | undefined>(undefined);
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  // Используем твой отличный хук!
+
   const [favoritesIds, setFavoritesIds] = usePersistentState<string[]>('favorites', []);
 
   const add = (id: string) => {

@@ -1,0 +1,56 @@
+@use "../styles/variables" as *;
+
+.movie-page-card {
+  display: flex;
+  gap: 3rem;
+  border-radius: $border-radius;
+  padding-top: 5rem;
+}
+
+.movie-page-poster-img {
+  width: 40%;
+  background-color: $bg-img;
+  object-fit: cover;
+}
+
+.movie-page-poster-details {
+  width: 60%;
+}
+
+.movie-page-title {
+  display: flex;
+  font-size: 20px;
+  color: $text-primary;
+}
+
+.movie-page-description {
+  color: $text-primary;
+}
+
+.movie-page-year {
+  display: flex;
+  color: $text-secondary;
+  font-weight: lighter;
+  font-size: 15px;
+}
+
+.movie-page-favorite-btn {
+  display: block;
+  width: 60%;
+  cursor: pointer;
+  color: $text-primary;
+  background-color: $accent-color;
+  border: none;
+  font-size: $button-font-size;
+  border-radius: $border-radius;
+}
+
+.movie-page-back-btn {
+  display: block;
+  width: 60%;
+  color: $text-primary;
+  background-color: $back-btn;
+  margin-top: 0.5rem;
+  border-radius: $border-radius;
+  border: none;
+}

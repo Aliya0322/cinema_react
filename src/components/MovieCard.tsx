@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import './MovieCard.scss'
 
 type MovieCardProps = {
   movie: {
@@ -14,8 +15,8 @@ type MovieCardProps = {
 export function MovieCard({movie, isFavorite, onToggleFavorite}: MovieCardProps) {
   return (
     <div className='cinema-card'>
-      <img className="cinema-poster-img" src="#" alt={movie.title} />
       <Link to={`/movie/${movie.id}`}>
+        <img className="cinema-poster-img" src="#" alt={movie.title} />
         <h1 className="cinema-title">{movie.title}</h1>
       </Link>
       <h3 className='cinema-year'>{movie.year}</h3>

@@ -20,7 +20,7 @@ export default function CatalogPage({ searchQuery }: { searchQuery: string }) {
   }, [searchQuery]);
 
   return (
-    <>
+    <div className='cinema-grid-page'>
       {displayedMovies.map(movie => (
         <MovieCard
         key={movie.id}
@@ -29,6 +29,6 @@ export default function CatalogPage({ searchQuery }: { searchQuery: string }) {
         onToggleFavorite={toggle}>
         </MovieCard>
       ))}
-    </>
+    </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaSearch } from "react-icons/fa";
 import './Header.scss'
+import {Link} from "react-router-dom";
 
 
 type HeaderProps = {
@@ -12,7 +13,9 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) =
 
   return (
     <header className="catalog-header">
-      <h1 className="catalog-title">Кинополка</h1>
+      <Link to="/">
+        <h1 className="catalog-title">Кинополка</h1>
+      </Link>
       <div className="search-container">
         <FaSearch className="search-icon" />
         <input
