@@ -9,9 +9,10 @@ type HeaderProps = {
   onSearchChange: (value: string) => void;
   favoritesCount: number;
   onNavigateToFavorites: () => void;
+  onNavigateToSettings: () => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange, favoritesCount, onNavigateToFavorites }) => {
+export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange, favoritesCount, onNavigateToFavorites, onNavigateToSettings }) => {
 
   return (
     <header className="catalog-header">
@@ -30,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange, fav
       </div>
       <nav className="catalog-nav">
         <button className="favorites-btn" onClick={onNavigateToFavorites}>Избранное ({favoritesCount})</button>
-        <button className="settings-btn">Настройки</button>
+        <button className="settings-btn" onClick={onNavigateToSettings}>Настройки</button>
       </nav>
     </header>
   );

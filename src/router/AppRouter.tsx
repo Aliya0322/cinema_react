@@ -6,6 +6,7 @@ import { MoviePage } from "../pages/MoviePage.tsx";
 import { type Movie, movies } from "../ data/movies.ts";
 import { FavoritesPage } from "../pages/FavoritesPage.tsx";
 import {FavoritesContext} from "../contexts/FavoritesContext.tsx";
+import {SettingsPage} from "../pages/SettingsPage.tsx";
 
 export default function AppRouter() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,6 +25,10 @@ export default function AppRouter() {
     navigate('/favorites');
   }
 
+  const handleNavigateToSettings = () => {
+    navigate('/settings');
+  }
+
 
   return (
     <>
@@ -31,6 +36,7 @@ export default function AppRouter() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         onNavigateToFavorites={handleNavigateToFavorites}
+        onNavigateToSettings={handleNavigateToSettings}
         favoritesCount={ids.length}
       />
       <Routes>
@@ -55,6 +61,12 @@ export default function AppRouter() {
           path="/favorites"
           element={
             <FavoritesPage />
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+          <SettingsPage />
           }
         />
       </Routes>
