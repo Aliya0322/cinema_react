@@ -1,13 +1,14 @@
-import { useFavorites } from "../hooks/useFavorites";
 import { movies } from "../ data/movies.ts";
 import { MovieCard } from "../components/MovieCard";
 import { Link } from "react-router-dom";
 
-export function FavoritesPage() {
-  const { ids, toggle } = useFavorites();
+type FavoritesPageProps = {
+  favorites: string[];
+  onToggleFavorite: (id: string) => void;
+}
 
-  // Находим фильмы, которые есть в избранном
-  const favoriteMovies = movies.filter(movie => ids.includes(movie.id));
+export function FavoritesPage({ favorites, onToggleFavorite } : FavoritesPageProps) {
+  const favoriteMovies = movies.filter(movie => favorites.includes(movie.id));
 
   if (favoriteMovies.length === 0) {
     return (
@@ -25,7 +26,7 @@ export function FavoritesPage() {
           key={movie.id}
           movie={movie}
           isFavorite={true}
-          onToggleFavorite={() => toggle(movie.id)}
+          onToggleFavorite={() => onToggleFavorite(movie.id)}
         />
       ))}
     </section>

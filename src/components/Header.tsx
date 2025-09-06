@@ -26,6 +26,10 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) =
           onChange={(e) => onSearchChange(e.target.value)}
         />
       </div>
+      <nav className="catalog-nav">
+        <button className="favorites-btn">Избранное (1)</button>
+        <button className="settings-btn">Настройки</button>
+      </nav>
     </header>
   );
 };

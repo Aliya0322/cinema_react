@@ -1,5 +1,6 @@
 @use '../styles/variables' as *;
 
+
 .catalog-header {
   display: flex;
   align-items: center;
@@ -8,6 +9,7 @@
   position: fixed;
   top: 1rem;
   padding: 1rem 2rem;
+  z-index: 1000;
 }
 
 .catalog-title {
@@ -56,4 +58,18 @@
   color: rgba(255, 255, 255, 0.7);
   transition: color 0.3s ease;
   flex-shrink: 0;
+}
+
+.catalog-nav {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+.favorites-btn, .settings-btn {
+  background-color: transparent;
+  border: none;
+  color: $text-primary;
+  outline: none;
+  white-space: nowrap;
 }

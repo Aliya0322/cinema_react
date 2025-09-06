@@ -1,11 +1,10 @@
-import {Route, Routes} from "react-router-dom";
-import  CatalogPage  from "../pages/CatalogPage";
+import { Route, Routes } from "react-router-dom";
+import CatalogPage from "../pages/CatalogPage";
 import { Header } from '../components/Header';
-import {useState} from "react";
-import {MoviePage} from "../pages/MoviePage.tsx";
-import {type Movie, movies} from "../ data/movies.ts";
-
-
+import { useState } from "react";
+import { MoviePage } from "../pages/MoviePage.tsx";
+import { type Movie, movies } from "../ data/movies.ts";
+import { FavoritesPage } from "../pages/FavoritesPage.tsx";
 
 export default function AppRouter() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -17,8 +16,6 @@ export default function AppRouter() {
       prev.includes(id) ? prev.filter(favId => favId !== id) : [...prev, id]
     );
   };
-
-
 
   return (
     <>
@@ -32,7 +29,6 @@ export default function AppRouter() {
           element={
             <CatalogPage
               searchQuery={searchQuery}
-
             />
           }
         />
@@ -44,6 +40,14 @@ export default function AppRouter() {
               favorites={favorites}
               onToggleFavorite={toggleFavorite}
             />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesPage
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}/>
           }
         />
       </Routes>
