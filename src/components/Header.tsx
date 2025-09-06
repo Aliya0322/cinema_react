@@ -7,9 +7,11 @@ import {Link} from "react-router-dom";
 type HeaderProps = {
   searchQuery: string;
   onSearchChange: (value: string) => void;
+  favoritesCount: number;
+  onNavigateToFavorites: () => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) => {
+export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange, favoritesCount, onNavigateToFavorites }) => {
 
   return (
     <header className="catalog-header">
@@ -27,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange }) =
         />
       </div>
       <nav className="catalog-nav">
-        <button className="favorites-btn">Избранное (1)</button>
+        <button className="favorites-btn" onClick={onNavigateToFavorites}>Избранное ({favoritesCount})</button>
         <button className="settings-btn">Настройки</button>
       </nav>
     </header>

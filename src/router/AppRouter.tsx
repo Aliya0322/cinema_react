@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import CatalogPage from "../pages/CatalogPage";
 import { Header } from '../components/Header';
 import { useState } from "react";
@@ -17,11 +17,20 @@ export default function AppRouter() {
     );
   };
 
+  const navigate = useNavigate();
+
+  const handleNavigateToFavorites = () => {
+    navigate('/favorites');
+  }
+
+
   return (
     <>
       <Header
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
+        onNavigateToFavorites={handleNavigateToFavorites}
+        favoritesCount={favorites.length}
       />
       <Routes>
         <Route
@@ -29,6 +38,9 @@ export default function AppRouter() {
           element={
             <CatalogPage
               searchQuery={searchQuery}
+              movies={moviesData}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
             />
           }
         />

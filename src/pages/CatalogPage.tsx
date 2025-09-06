@@ -1,14 +1,19 @@
 import './CatalogPage.scss';
-import { movies } from "../ data/movies.ts";
+import {type Movie} from "../ data/movies.ts";
 import { useState, useEffect } from "react";
 import {MovieCard} from "../components/MovieCard.tsx";
-import { useFavorites } from "../hooks/useFavorites";
 
 
+type CatalogPageProps = {
+  movies: Movie[];
+  favorites: string[];
+  searchQuery: string;
+  onToggleFavorite: (id: string) => void;
+}
 
-export default function CatalogPage({ searchQuery }: { searchQuery: string }) {
+export default function CatalogPage({ searchQuery, onToggleFavorite, favorites, movies }: CatalogPageProps ) {
   const [displayedMovies, setDisplayedMovies] = useState(movies);
-  const { ids, toggle } = useFavorites();
+
 
 
 
@@ -17,7 +22,7 @@ export default function CatalogPage({ searchQuery }: { searchQuery: string }) {
       movie.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
     setDisplayedMovies(filtered);
-  }, [searchQuery]);
+  }, [searchQuery, movies]);
 
   return (
     <div className='cinema-grid-page'>
@@ -25,8 +30,8 @@ export default function CatalogPage({ searchQuery }: { searchQuery: string }) {
         <MovieCard
         key={movie.id}
         movie={movie}
-        isFavorite={ids.includes(movie.id)}
-        onToggleFavorite={toggle}>
+        isFavorite={favorites.includes(movie.id)}
+        onToggleFavorite={()=>onToggleFavorite(movie.id)}>
         </MovieCard>
       ))}
     </div>

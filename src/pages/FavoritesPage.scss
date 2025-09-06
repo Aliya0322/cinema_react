@@ -1,0 +1,24 @@
+@use "../styles/variables" as *;
+
+
+.favorites-empty {
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorites-empty-title {
+  color: $text-primary;
+}
+
+.favorites-empty-warning {
+  color: $text-primary;
+}
+
+.favorite-page-back-btn {
+  color: $text-primary;
+  background-color: $back-btn;
+  margin-top: 0.5rem;
+  border-radius: $border-radius;
+  border: none;
+}
