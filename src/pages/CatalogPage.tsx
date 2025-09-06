@@ -1,21 +1,23 @@
 import './CatalogPage.scss';
-import {type Movie} from "../ data/movies.ts";
-import { useState, useEffect } from "react";
-import {MovieCard} from "../components/MovieCard.tsx";
-
+import { type Movie } from "../ data/movies.ts";
+import { useState, useEffect, useContext } from "react";
+import { MovieCard } from "../components/MovieCard.tsx";
+import { FavoritesContext } from "../contexts/FavoritesContext.tsx";
 
 type CatalogPageProps = {
   movies: Movie[];
-  favorites: string[];
   searchQuery: string;
-  onToggleFavorite: (id: string) => void;
 }
 
-export default function CatalogPage({ searchQuery, onToggleFavorite, favorites, movies }: CatalogPageProps ) {
+export default function CatalogPage({ searchQuery, movies }: CatalogPageProps) {
+  const favoritesContext = useContext(FavoritesContext);
+
+  if (!favoritesContext) {
+    throw new Error("CatalogPage must be used within a FavoritesProvider");
+  }
+
+  const { ids, toggle } = favoritesContext;
   const [displayedMovies, setDisplayedMovies] = useState(movies);
-
-
-
 
   useEffect(() => {
     const filtered = movies.filter(movie =>
@@ -28,11 +30,11 @@ export default function CatalogPage({ searchQuery, onToggleFavorite, favorites, 
     <div className='cinema-grid-page'>
       {displayedMovies.map(movie => (
         <MovieCard
-        key={movie.id}
-        movie={movie}
-        isFavorite={favorites.includes(movie.id)}
-        onToggleFavorite={()=>onToggleFavorite(movie.id)}>
-        </MovieCard>
+          key={movie.id}
+          movie={movie}
+          isFavorite={ids.includes(movie.id)}
+          onToggleFavorite={() => toggle(movie.id)}
+        />
       ))}
     </div>
   );

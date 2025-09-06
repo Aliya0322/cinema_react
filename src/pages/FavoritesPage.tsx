@@ -1,15 +1,21 @@
 import { movies } from "../ data/movies.ts";
 import { MovieCard } from "../components/MovieCard";
 import { Link } from "react-router-dom";
-import './FavoritesPage.scss'
+import './FavoritesPage.scss';
+import { useContext } from "react";
+import { FavoritesContext } from "../contexts/FavoritesContext.tsx";
 
-type FavoritesPageProps = {
-  favorites: string[];
-  onToggleFavorite: (id: string) => void;
-}
+export function FavoritesPage() {
+  const favoritesContext = useContext(FavoritesContext);
 
-export function FavoritesPage({ favorites, onToggleFavorite } : FavoritesPageProps) {
-  const favoriteMovies = movies.filter(movie => favorites.includes(movie.id));
+  if (!favoritesContext) {
+    throw new Error("FavoritesPage must be used within a FavoritesProvider");
+  }
+
+  const { ids, toggle } = favoritesContext;
+
+
+  const favoriteMovies = movies.filter(movie => ids.includes(movie.id));
 
   if (favoriteMovies.length === 0) {
     return (
@@ -32,7 +38,7 @@ export function FavoritesPage({ favorites, onToggleFavorite } : FavoritesPagePro
           key={movie.id}
           movie={movie}
           isFavorite={true}
-          onToggleFavorite={() => onToggleFavorite(movie.id)}
+          onToggleFavorite={() => toggle(movie.id)}
         />
       ))}
     </section>

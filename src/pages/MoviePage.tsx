@@ -1,16 +1,24 @@
 import {Link, useParams} from "react-router-dom";
 import type {Movie} from "../ data/movies.ts";
 import './MoviePage.scss'
+import {FavoritesContext} from "../contexts/FavoritesContext.tsx";
+import {useContext} from "react";
 
 
 type MoviePageProps = {
   movies: Movie[];
-  favorites: string[];
-  onToggleFavorite: (id: string) => void;
 }
 
-export function MoviePage({ movies, favorites, onToggleFavorite }: MoviePageProps) {
+export function MoviePage({ movies }: MoviePageProps) {
   const { id } = useParams<{ id: string }>();
+
+  const favoritesContext = useContext(FavoritesContext);
+
+  if (!favoritesContext) {
+    throw new Error("MoviePage must be used within a FavoritesProvider");
+  }
+
+  const { ids, toggle } = favoritesContext;
 
   const movie = movies.find(m => m.id === id);
 
@@ -18,7 +26,7 @@ export function MoviePage({ movies, favorites, onToggleFavorite }: MoviePageProp
     return <div>Фильм не найден</div>;
   }
 
-  const isFavorite = favorites.includes(movie.id);
+  const isFavorite = ids.includes(movie.id);
 
   return (
     <div className='movie-page-card'>
@@ -29,7 +37,7 @@ export function MoviePage({ movies, favorites, onToggleFavorite }: MoviePageProp
       <p className="movie-page-description">{movie.description}</p>
       <button
         className="movie-page-favorite-btn"
-        onClick={() => onToggleFavorite(movie.id)}
+        onClick={() => toggle(movie.id)}
       >
         {isFavorite ? "Убрать из избранного" : "В избранное"}
       </button>
