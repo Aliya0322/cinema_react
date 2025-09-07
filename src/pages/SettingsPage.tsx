@@ -59,7 +59,6 @@ export function SettingsPage() {
         <h2 className='settings-page-favorites-title'>Избранное</h2>
         <span className='settings-page-favorites-info'>{ids.length} из {movies.length} фильмов</span>
       </div>
-
     </div>
   )
 }
