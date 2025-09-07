@@ -1,11 +1,19 @@
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {movies} from "../ data/movies.ts";
 import {FavoritesContext} from "../contexts/FavoritesContext.tsx";
+import {ThemeContext} from "../contexts/ThemeContext";
 import './SettingsPage.scss'
 
 
 export function SettingsPage() {
-  const [currentTheme, setCurrentTheme] = useState<'light' | 'dark' | 'system'>('light')
+
+  const themeContext = useContext(ThemeContext);
+
+  if (!themeContext) {
+    throw new Error("SettingsPage must be used within a ThemeProvider");
+  }
+
+  const { theme, setTheme } = themeContext;
 
   const favoritesContext = useContext(FavoritesContext);
 
@@ -25,22 +33,22 @@ export function SettingsPage() {
         <p className='settings-page-theme-description'>Выберите внешний вид приложения</p>
         <div className="theme-buttons-container">
           <button
-            className={currentTheme === 'light' ? 'theme-btn active' : 'theme-btn'}
-            onClick={() => setCurrentTheme('light')}
+            className={theme === 'light' ? 'theme-btn active' : 'theme-btn'}
+            onClick={() => setTheme('light')}
           >
             light
           </button>
 
           <button
-            className={currentTheme === 'dark' ? 'theme-btn active' : 'theme-btn'}
-            onClick={() => setCurrentTheme('dark')}
+            className={theme === 'dark' ? 'theme-btn active' : 'theme-btn'}
+            onClick={() => setTheme('dark')}
           >
             dark
           </button>
 
           <button
-            className={currentTheme === 'system' ? 'theme-btn active' : 'theme-btn'}
-            onClick={() => setCurrentTheme('system')}
+            className={theme === 'system' ? 'theme-btn active' : 'theme-btn'}
+            onClick={() => setTheme('system')}
           >
             system
           </button>
