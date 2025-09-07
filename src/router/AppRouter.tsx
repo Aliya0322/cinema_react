@@ -7,6 +7,7 @@ import { type Movie, movies } from "../ data/movies.ts";
 import { FavoritesPage } from "../pages/FavoritesPage.tsx";
 import {FavoritesContext} from "../contexts/FavoritesContext.tsx";
 import {SettingsPage} from "../pages/SettingsPage.tsx";
+import {NotFoundPage} from "../pages/NotFoundPage.tsx";
 
 export default function AppRouter() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -69,6 +70,13 @@ export default function AppRouter() {
           <SettingsPage />
           }
         />
+        <Route
+          path="/notfound"
+          element={
+          <NotFoundPage />
+          }
+        />
+
       </Routes>
     </>
   );
