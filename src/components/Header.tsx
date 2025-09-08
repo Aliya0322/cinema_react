@@ -12,7 +12,11 @@ type HeaderProps = {
   onNavigateToSettings: () => void;
 };
 
-export const Header: React.FC<HeaderProps> = ({ searchQuery, onSearchChange, favoritesCount, onNavigateToFavorites, onNavigateToSettings }) => {
+export const Header: React.FC<HeaderProps> = ({ searchQuery,
+                                                onSearchChange,
+                                                favoritesCount,
+                                                onNavigateToFavorites,
+                                                onNavigateToSettings }) => {
 
   return (
     <header className="catalog-header">
