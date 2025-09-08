@@ -21,6 +21,8 @@
 .settings-page-favorites-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 60%;
   background-color: $accent-color;
   border-radius: $border-radius;
   padding: 1rem;
@@ -30,8 +32,8 @@
 .theme-buttons-container {
   display: flex;
   margin-top: 10px;
-  justify-content: space-between;
-  gap: 0.2rem;
+  justify-content: flex-start;
+  gap: 0.1rem;
 }
 
 .theme-btn {

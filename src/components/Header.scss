@@ -3,14 +3,16 @@
 
 .catalog-header {
   display: flex;
+  position: sticky;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  position: fixed;
-  top: 1rem;
-  padding: 1rem 2rem;
-  z-index: 1000;
+  top: 0;
+  padding: 5rem;
+  z-index: 10;
   background-color: $bg-primary;
+  height: 72px;
+  box-sizing: border-box;
 }
 
 .catalog-title {

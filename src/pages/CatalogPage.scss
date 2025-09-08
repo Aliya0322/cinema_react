@@ -2,14 +2,12 @@
 
 body {
   background-color: $bg-primary;
-  padding: 5rem;
 }
 
 .cinema-grid-page {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
-  margin-top: 3rem;
 }
 
 .cinema-card {
