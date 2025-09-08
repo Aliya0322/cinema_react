@@ -13,13 +13,13 @@
 
 .cinema-poster-img {
   width: 100%;
-  background-color: $bg-img;
+  background-color: var(--bg-img);
   object-fit: cover;
 }
 
 .cinema-year {
   display: flex;
-  color: $text-secondary;
+  color: var(--text-secondary);
   font-weight: lighter;
   font-size: 15px;
 }
@@ -27,16 +27,29 @@
 .cinema-title {
   display: flex;
   font-size: 20px;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
-.favorite-btn {
+.favorite-btn--add {
   display: block;
   width: 100%;
   cursor: pointer;
-  color: $text-primary;
-  background-color: $accent-color;
+  color: var(--text-primary);
+  background-color: var(--accent-color);
   border: none;
   font-size: $button-font-size;
   border-radius: $border-radius;
+}
+
+.favorite-btn--remove {
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: var(--btn-remove-color);
+  border: none;
+  font-size: $button-font-size;
+  border-radius: $border-radius;
+  padding: 0.75rem;
+  transition: all 0.3s ease;
 }

@@ -55,7 +55,7 @@ export function MoviePage() {
         <h3 className="movie-page-year">{movie.year}</h3>
         <p className="movie-page-description">{movie.description}</p>
         <button
-          className="movie-page-favorite-btn"
+          className={`movie-page-favorite-btn ${isFavorite ? 'movie-page-favorite-btn--remove' : 'movie-page-favorite-btn--add'}`}
           onClick={() => toggle(movie.id)}
         >
           {isFavorite ? "Убрать из избранного" : "В избранное"}

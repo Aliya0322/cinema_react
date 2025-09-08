@@ -9,17 +9,17 @@
 }
 
 .not-found-page-title {
-  color: $text-primary;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .not-found-page-descriptions {
-  color: $text-secondary;
+  color: var(--text-secondary);
   margin-bottom: 2rem;
 }
 
 .not-found-page-back-btn {
-  color: $text-secondary;
-  background-color: $back-btn;
+  color: var(--text-secondary);
+  background-color: var(--accent-color);
   border: none;
 }

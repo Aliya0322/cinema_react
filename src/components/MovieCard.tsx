@@ -21,7 +21,7 @@ export function MovieCard({movie, isFavorite, onToggleFavorite}: MovieCardProps)
       </Link>
       <h3 className='cinema-year'>{movie.year}</h3>
       <button
-        className="favorite-btn"
+        className={`favorite-btn ${isFavorite ? 'favorite-btn--remove' : 'favorite-btn--add'}`}
         onClick={() => onToggleFavorite(movie.id)}
       >
         {isFavorite ? "Убрать из избранного" : "В избранное"}

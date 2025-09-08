@@ -1,18 +1,32 @@
 //Цвета для Light Theme
-  $bg-primary: #ffffff;
-  $bg-img: #f5f5f5;
-  $text-primary: #000000;
-  $text-secondary: #333333;
-  $accent-color: #007bff;
-  $back-btn: #2e7d32;
+:root, .theme-light {
+  --bg-primary: #ffffff;
+  --bg-img: #e9ecef;
+  --text-primary: #000000;
+  --text-secondary: #6c757d;
+  --accent-color: #ADD8E6;
+  --btn-remove-color: #FA8072;
+  --btn-primary-color: #007bff;
+
+}
 
 // Цвета для Dark Theme
-$bg-primary: #1a1a1a;
-$bg-img: beige;
-$text-primary: white;
-$text-secondary: honeydew;
-$accent-color: grey;
-$back-btn: #2e7d32;
+.theme-dark {
+  --bg-primary: #1a1a1a;
+  --bg-img: beige;
+  --text-primary: white;
+  --text-secondary: honeydew;
+  --accent-color: grey;
+  --btn-primary-color: #2e7d32;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 // Размеры
 $button-font-size: 15px;

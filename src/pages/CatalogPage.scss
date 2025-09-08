@@ -1,7 +1,7 @@
 @use '../styles/variables' as *;
 
 body {
-  background-color: $bg-primary;
+  background-color: var(--bg-primary);
 }
 
 .cinema-grid-page {
@@ -17,13 +17,13 @@ body {
 
 .cinema-poster-img {
   width: 100%;
-  background-color: $bg-img;
+  background-color: var(--bg-img);
   object-fit: cover;
 }
 
 .cinema-year {
   display: flex;
-  color: $text-secondary;
+  color: var(--text-secondary);
   font-weight: lighter;
   font-size: 15px;
 }
@@ -31,15 +31,15 @@ body {
 .cinema-title {
   display: flex;
   font-size: 20px;
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 .favorite-btn {
   display: block;
   width: 100%;
   cursor: pointer;
-  color: $text-primary;
-  background-color: $accent-color;
+  color: var(--text-primary);
+  background-color: var(--accent-color);
   border: none;
   font-size: $button-font-size;
   border-radius: $border-radius;

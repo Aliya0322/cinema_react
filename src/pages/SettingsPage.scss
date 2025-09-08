@@ -7,13 +7,13 @@
 .settings-page-title,
 .settings-page-theme-title,
 .settings-page-favorites-title {
-  color: $text-primary;
+  color: var(--text-primary);
   margin: 0;
 }
 
 .settings-page-description,
 .settings-page-theme-description {
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 .settings-page-theme-container,
@@ -23,7 +23,7 @@
   flex-direction: column;
   height: 100%;
   width: 60%;
-  background-color: $accent-color;
+  background-color: var(--accent-color);
   border-radius: $border-radius;
   padding: 1rem;
   margin: 1rem;
@@ -40,21 +40,21 @@
   padding-left: 3rem;
   padding-right: 3rem;
   border: none;
-  background: $bg-primary;
+  background: var(--bg-primary);
   border-radius: $border-radius;
-  color: $text-secondary;
+  color: var(--text-secondary);
 }
 
 .theme-btn.active {
   border-color: darkgreen;
-  background: $back-btn;
+  background: var(--btn-primary-color);
   color: white;
 }
 
 .settings-page-favorites-info {
-  background-color: $back-btn;
+  background-color: var(--btn-primary-color);
   border-radius: $border-radius;
   padding: 1rem;
   margin-top: 1rem;
-  color: $text-secondary;
+  color: white;
 }

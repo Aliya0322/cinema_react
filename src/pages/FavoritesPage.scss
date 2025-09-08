@@ -8,16 +8,16 @@
 }
 
 .favorites-empty-title {
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 .favorites-empty-warning {
-  color: $text-primary;
+  color: var(--text-primary);
 }
 
 .favorite-page-back-btn {
-  color: $text-primary;
-  background-color: $back-btn;
+  color: var(--text-primary);
+  background-color: var(--accent-color);
   margin-top: 0.5rem;
   border-radius: $border-radius;
   border: none;
