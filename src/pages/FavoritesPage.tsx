@@ -50,7 +50,7 @@ export function FavoritesPage() {
   }
 
   return (
-    <section className="cinema-grid-page">
+    <section className="favorite-cinema-grid-page">
       {favoriteMovies.map((movie) => (
         <MovieCard
           key={movie.id}

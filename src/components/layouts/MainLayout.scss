@@ -1,3 +1,5 @@
+@use "../../styles/variables" as *;
+
 .main-layout {
   min-height: 100vh;
   display: flex;
@@ -10,4 +12,22 @@
   padding-left: 4rem;
   min-height: calc(100vh - 72px);
   background-color: var(--bg-primary);
+
+  // планшеты
+  @media (max-width: 1024px) {
+    padding-left: 2rem;
+  }
+
+  // смартфоны
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    padding-top: 50px;
+  }
+
+  // минимальная ширина 360px
+  @media (max-width: 360px) {
+    padding-left: 0.75rem;
+    padding-top: 45px;
+    min-width: 360px;
+  }
 }

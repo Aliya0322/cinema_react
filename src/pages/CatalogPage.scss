@@ -6,41 +6,24 @@ body {
 
 .cinema-grid-page {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;;
   gap: 1rem;
-}
 
-.cinema-card {
-  padding: 1rem;
-  border-radius: $border-radius;
-}
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 
-.cinema-poster-img {
-  width: 100%;
-  background-color: var(--bg-img);
-  object-fit: cover;
-}
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
 
-.cinema-year {
-  display: flex;
-  color: var(--text-secondary);
-  font-weight: lighter;
-  font-size: 15px;
-}
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
 
-.cinema-title {
-  display: flex;
-  font-size: 20px;
-  color: var(--text-primary);
-}
-
-.favorite-btn {
-  display: block;
-  width: 100%;
-  cursor: pointer;
-  color: var(--text-primary);
-  background-color: var(--accent-color);
-  border: none;
-  font-size: $button-font-size;
-  border-radius: $border-radius;
+  @media (max-width: 360px) {
+    gap: 0.4rem;
+  }
 }

@@ -1,18 +1,72 @@
 @use "../styles/variables" as *;
 
-
 .favorites-empty {
   display: block;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1024px) {
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    min-height: 40vh;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.75rem;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.5rem;
+  }
 }
 
 .favorites-empty-title {
   color: var(--text-primary);
+
+  @media (max-width: 1024px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 1.25rem;
+  }
 }
 
 .favorites-empty-warning {
   color: var(--text-primary);
+
+  @media (max-width: 1024px) {
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
 }
 
 .favorite-page-back-btn {
@@ -21,4 +75,81 @@
   margin-top: 0.5rem;
   border-radius: $border-radius;
   border: none;
+
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 1024px) {
+    padding: 0.875rem 1.75rem;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-width: 110px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+    min-width: 100px;
+    min-height: 40px;
+  }
+
+  @media (max-width: 360px) {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    min-width: 90px;
+    min-height: 36px;
+  }
+}
+
+.favorite-cinema-grid-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.875rem;
+    padding: 0.875rem;
+  }
+
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+    padding: 0.625rem;
+  }
+
+  @media (max-width: 360px) {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+}
+
+// Защита от уменьшения меньше 360px
+@media (max-width: 360px) {
+  body {
+    min-width: 360px;
+    overflow-x: auto;
+  }
+
+  .favorite-cinema-grid-page {
+    min-width: 360px;
+  }
+
+  .favorites-empty {
+    min-width: 360px;
+  }
 }
